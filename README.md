@@ -28,3 +28,5 @@ A full-stack web application to efficiently manage internships, track intern pro
 
 git clone https://github.com/yourusername/internship-management-system.git
 cd internship-management-system
+
+
