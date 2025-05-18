@@ -5,7 +5,6 @@ import userRouter from "./routers/user-router.js";
 import authRouter from "./routers/auth-router.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import todoRouter from "./routers/todo-router.js";
 import {v2 as cloudinary} from "cloudinary";
 import adminRouter from "./routers/admin-router.js";
 import internRouter from "./routers/intern-router.js";
@@ -42,7 +41,6 @@ app.use(express.json());
 
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
-app.use("/api/todo", todoRouter);
 app.use("/api/admin", adminRouter);
 app.use("/api/intern",internRouter);
 app.use("/api/app",appRouter);
