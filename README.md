@@ -40,9 +40,10 @@ cd internship-management-system
 ```
 # 📁 Backend Setup
 
-bash
+```
 git clone https://github.com/yourusername/internship-management-system.git
 cd internship-management-system
+
 ```
 
 
