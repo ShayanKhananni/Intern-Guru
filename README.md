@@ -20,9 +20,9 @@ A full-stack web app built for **Internee.pk** to help companies manage interns 
 
 ## 🛠️ Tech Stack
 
-| Frontend        | Backend           | Database  | Tools & APIs                     |
-|-----------------|-------------------|-----------|----------------------------------|
-| React + Vite    | Node.js + Express | MongoDB   | JWT, Stripe, Cloudinary, Nodemailer |
+| Frontend              | Backend           | Database  | Tools & APIs                     |
+|-----------------------|-------------------|-----------|----------------------------------|
+| React + Vite + Redux Toolkit (RTK) | Node.js + Express | MongoDB   | JWT, Stripe, Cloudinary, Nodemailer |
 
 ---
 
