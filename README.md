@@ -34,7 +34,7 @@ git clone https://github.com/yourusername/internship-management-system.git
 cd internship-management-system
 
 
-### 🔃 Clone the repository
+# 📁 Backend Setup
 bash
 Copy
 Edit
