@@ -34,7 +34,7 @@ cd internship-management-system
 # 📁 Backend Setup
 
 ```
-cd Intern-Guru Frontned
+cd InternGuru Backend
 npm install
 npm run dev
 ```
@@ -42,7 +42,7 @@ npm run dev
 # 📁 Frontend Setup
 
 ```
-cd Intern-Guru Frontned
+cd InternGuru Client
 npm install
 npm run dev
 ```
