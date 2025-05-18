@@ -27,23 +27,18 @@ A full-stack web app built for **Internee.pk** to help companies manage interns 
 ---
 
 ## 🔧 Installation & Setup
-
 ### 🔃 Clone the repository
-
 ```
 bash
 git clone https://github.com/yourusername/internship-management-system.git
 cd internship-management-system
-
-
-
 ```
+
 # 📁 Backend Setup
 
-```
-git clone https://github.com/yourusername/internship-management-system.git
-cd internship-management-system
-
+```cd backend
+npm install
+npm run dev
 ```
 
 
