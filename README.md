@@ -25,7 +25,6 @@ A full-stack web app built for **Internee.pk** to help companies manage interns 
 | React + Vite    | Node.js + Express | MongoDB   | JWT, Stripe, Cloudinary, Nodemailer |
 
 ---
-
 ## 🔧 Installation & Setup
 
 ### 🔃 Clone the repository
@@ -35,7 +34,7 @@ git clone https://github.com/yourusername/internship-management-system.git
 cd internship-management-system
 
 
-# 📁 Backend Setup
+### 🔃 Clone the repository
 bash
 Copy
 Edit
