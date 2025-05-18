@@ -35,11 +35,5 @@ bash
 git clone https://github.com/yourusername/internship-management-system.git
 cd internship-management-system
 
----
 
-## 🔧 Installation & Setup
-
-### 🔃 Clone the repository
-
-```
 
