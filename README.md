@@ -37,3 +37,18 @@ cd internship-management-system
 
 
 
+```
+# 📁 Backend Setup
+cd backend
+npm install
+npm run dev
+```
+
+
+```
+# 📁 Frontend Setup
+cd backend
+npm install
+npm run dev
+```
+
