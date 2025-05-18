@@ -1,5 +1,5 @@
 # 🎓 Internship Management System
-An Internship Management System designed to streamline the onboarding, task assignment, progress tracking, and communication processes for organizations managing intern programs.
+An Internship Management System designed to streamline the onboarding, task assignment, progress tracking, and communication processes for organizations managing internship Activities
 ---
 
 ## 🚀 Features
