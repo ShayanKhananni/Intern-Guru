@@ -45,10 +45,4 @@ npm run dev
 ```
 
 
-```
-# 📁 Frontend Setup
-cd backend
-npm install
-npm run dev
-```
 
