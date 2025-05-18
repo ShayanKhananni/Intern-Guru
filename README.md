@@ -1,26 +1,41 @@
-# Project Title
+# 🎓 Internship Management System
 
-## Introduction
+A full-stack web app built for **Internee.pk** to help companies manage interns efficiently — onboard, assign tasks, track progress, and streamline communication.
 
-This section explains what the project is about.
+---
 
-## Features
+## 🚀 Features
 
-- Feature 1
-- Feature 2
+- 🔐 Role-Based Authentication (Admin & Intern)
+- 📥 Internship Application Flow
+- 📊 Real-Time Task Tracking
+- 📝 Task Feedback & Approval System
+- 🧑‍💼 Admin Dashboard (manage applications, assign tasks)
+- 👨‍🎓 Intern Dashboard (submit tasks, track feedback)
+- 📧 Email Notifications via NodeMailer
+- ☁️ Cloudinary for file uploads
+- 💸 Stripe Payments for course access
 
-### Feature Details
+---
 
-More info about the features.
+## 🛠️ Tech Stack
 
-## Installation
+| Frontend        | Backend           | Database  | Tools & APIs                     |
+|-----------------|-------------------|-----------|----------------------------------|
+| React + Vite    | Node.js + Express | MongoDB   | JWT, Stripe, Cloudinary, Nodemailer |
 
-Steps to install the project.
+---
 
-## Usage
+## 🔧 Installation & Setup
 
-How to use the project.
+### 🔃 Clone the repository
 
-## License
+```bash
+git clone https://github.com/yourusername/internship-management-system.git
+cd internship-management-system
 
-License info here.
+
+📁 Backend Setup
+bash
+Copy
+Edit
