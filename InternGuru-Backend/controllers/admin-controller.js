@@ -49,33 +49,9 @@ import PurchasedCourse from "../models/purchased_course.model.js";
 // }
 
 
+
+
 /// Internship Api's
-
-// export const createInternshipCateg = async (req, res, next) => {
-//   try {
-
-//     // const internshipCat = await InternshipCat.create(req.body);
-
-//     if (req.file) {
-//       const imgUrl = await imageUploder(req);
-//       updatedProfile.photoURL = imgUrl; 
-//       console.log(req.file)
-//     }
-
-//     if (!internshipCat) {
-//       return next(customError(500, "Internship Category not created"));
-//     }
-
-//     return res.status(200).json(internshipCat);
-
-//   } catch (err) {
-//     console.log(err)
-//     return next(err);
-
-//   }
-// }
-
-
 
 export const createInternshipCateg = async (req, res, next) => {
   try {
