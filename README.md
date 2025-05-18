@@ -1,20 +1,18 @@
 # 🎓 Internship Management System
-
-A full-stack web app built for **Internee.pk** to help companies manage interns efficiently — onboard, assign tasks, track progress, and streamline communication.
-
+An Internship Management System designed to streamline the onboarding, task assignment, progress tracking, and communication processes for organizations managing intern programs.
 ---
 
 ## 🚀 Features
 
-- 🔐 Role-Based Authentication (Admin & Intern)
-- 📥 Internship Application Flow
-- 📊 Real-Time Task Tracking
-- 📝 Task Feedback & Approval System
-- 🧑‍💼 Admin Dashboard (manage applications, assign tasks)
-- 👨‍🎓 Intern Dashboard (submit tasks, track feedback)
-- 📧 Email Notifications via NodeMailer
-- ☁️ Cloudinary for file uploads
-- 💸 Stripe Payments for course access
+- 🛡️ Role-Based Authentication (Admin & Intern)  
+- 📨 Internship Application Flow  
+- 📈 Real-Time Task Tracking  
+- 📝 Task Feedback & Approval System  
+- 👔 Admin Dashboard (manage applications, assign tasks)  
+- 🎓 Intern Dashboard (submit tasks, track feedback)  
+- 📬 Email Notifications via NodeMailer  
+- ☁️ Cloudinary for file uploads  
+- 💳 Stripe Payments for course access  
 
 ---
 
