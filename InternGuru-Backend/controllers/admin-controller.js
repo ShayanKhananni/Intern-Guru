@@ -12,9 +12,6 @@ import Course from "../models/course_model.js";
 import PurchasedCourse from "../models/purchased_course.model.js";
 
 
-
-
-
 // const dummyController = (req,res,next) =>
 // {
 //   try
@@ -26,28 +23,6 @@ import PurchasedCourse from "../models/purchased_course.model.js";
 // next(err);
 //   }
 // }
-
-
-
-// const comonGet = async (req,res,next) =>
-// {
-//   try
-//   {
-//     const interns = await Enrollment.find({});
-
-
-//     if (interns.length === 0) {
-//       return next(customError(404,'No Interns Enrolled in this Categories'));
-//     }
-
-//     return res.status(200,interns);
-//   }
-//   catch(err)
-//   {
-//     return next(err);
-//   }
-// }
-
 
 
 
@@ -613,12 +588,14 @@ export const testPurchase = async (req, res) => {
 export const createInternshipTask = async (req, res, next) => {
 
   try {
-    const { title, internship_id, description } = req.body;
+
+    const { title, internship_id, description, collab } = req.body;
 
     const newTask = await Task.create({
       title,
       description,
       internship_id,
+      collab
     });
 
     if (!newTask) {

@@ -4,6 +4,9 @@ import TaskSubmission from "../models/task_submission_model.js";
 import { customError, sendEmail } from "./utils.js";
 
 
+
+/// Function to Calculate Get Pending Tasks and Send Email to Interns
+
 export const sendTaskReminders = async (req, res, next) => {
   try {
     const enrollments = await Enrollment.find()
@@ -44,16 +47,16 @@ export const sendTaskReminders = async (req, res, next) => {
         const offset = Math.round(daysPerTask * (i + 1));
         taskDeadline.setDate(taskDeadline.getDate() + offset);
 
+
+        /// Hard-Coded Current-Date as Date 5 Days Before every Pending Task Deadline
         const currentDate = new Date(taskDeadline);  
         currentDate.setDate(currentDate.getDate() - 5); 
-
+        
         // const currentDate = new Date();   /// Current Date  
-
         const daysLeft = Math.ceil((taskDeadline - currentDate) / (1000 * 60 * 60 * 24));
         const isSubmitted = submittedTaskIds.includes(taskId);
 
-         /// If lersser then 7 days for task deadline are left send email to interns
-
+         /// If lesser then 7 days for task deadline are left send email to interns
          if (daysLeft < 7 && !isSubmitted) {
           const text = `Please Submit Your Task ${task.title}, as soon as possible its deadline is ${taskDeadline}`
           sendEmail(internEmail,'Task Reminder',text)

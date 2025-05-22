@@ -1,6 +1,7 @@
 import Application from "../models/application_model.js";
 import Course from "../models/course_model.js";
 import Enrollment from "../models/enrollment_model.js";
+import Kanban from "../models/kanban_model.js";
 import PurchasedCourse from "../models/purchased_course.model.js";
 import Task from "../models/task-model.js";
 import TaskSubmission from "../models/task_submission_model.js";
@@ -97,6 +98,10 @@ export const updateTaskSubmission = async (req, res, next) => {
 
 
 
+
+
+
+
 export const getInternsTasks = async (req, res, next) => {
   try {
     const { internship_id, intern_id } = req.params;
@@ -117,6 +122,7 @@ export const getInternsTasks = async (req, res, next) => {
     const submittedIds = submittedTasks.map(task => task.task_id.toString());
 
     const mergedTasks = assignedTasks.map(task => {
+
       const isSubmitted = submittedIds.includes(task._id.toString());
       const submission = isSubmitted
         ? submittedTasks.find(sub => sub.task_id.toString() === task._id.toString())
@@ -147,6 +153,8 @@ export const getInternsTasks = async (req, res, next) => {
     next(err);
   }
 };
+
+
 
 
 export const getInternCourses = async (req, res, next) => {
@@ -192,8 +200,6 @@ export const getInternCourses = async (req, res, next) => {
     res.status(500).json({ message: "Server Error" });
   }
 };
-
-
 
 
 export const purchaseCourse = async (req, res) => {
@@ -266,3 +272,103 @@ export const enrollIntern = async (req, res, next) => {
     next(err);
   }
 };
+
+
+
+export const getCollaborativeTasks = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const collabTasks = await Task.find(
+      { internship_id: id, collab: true },
+    ).select('title internship_id')
+
+    if (collabTasks.length === 0) {
+      return res.status(200).json([]);
+    }
+
+    return res.status(200).json(collabTasks);
+  } catch (err) {
+    next(err);
+  }
+};
+
+
+
+
+
+
+
+
+
+export const addKanban = (req, res, next) => {
+  try {
+    const {title,status}  = req.body;
+    const task = Kanban.create({
+      title,
+      status
+    });
+    if (!task) {
+      return next(customError(500, 'Task Not Created'));
+    }
+
+    return res.status(200).json(task);
+  }
+  catch (err) {
+    next(err);
+  }
+}
+
+
+
+export const getKanbans = async (req, res, next) => {
+  try {
+    const tasks = await Kanban.find({});
+    if (tasks.lengt === 0) {
+      return res.status(200).json([]);
+    }
+    res.status(200).json(tasks);
+
+  } catch (err) {
+    next(err);
+  }
+};
+
+
+
+export const updateKanban = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const updatedTask = await Kanban.findByIdAndUpdate(id, req.body, { new: true });
+
+    if (!updatedTask) {
+      return next(customError(404, "Task not found"));
+    }
+
+    res.status(200).json(updatedTask);
+  } catch (err) {
+    next(err);
+  }
+};
+
+
+
+export const deleteKanban = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const deletedTask = await Kanban.findByIdAndDelete(id);
+
+    if (!deletedTask) {
+      return next(customError(404, "Task not found"));
+    }
+
+    res.status(200).json({ message: "Task deleted", task: deletedTask });
+  } catch (err) {
+    next(err);
+  }
+};
+
+
+
+
+
+

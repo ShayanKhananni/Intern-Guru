@@ -44,15 +44,13 @@ export const imageUploder = (req) =>
     })
 }
 
-
-
 export const sendEmail = async (to, subject, text) => {
   try {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'internguruu@gmail.com',
-        pass: process.env.APP_PASSWORD,
+        user: 'internguruu@gmail.com', 
+        pass: 'waun dwsv moqp kvjd',
       },
     });
 

@@ -10,13 +10,16 @@ import adminRouter from "./routers/admin-router.js";
 import internRouter from "./routers/intern-router.js";
 import appRouter from "./routers/appRouter.js";
 import "./Jobs/taskReminderJob.js";
-import Stripe from "stripe";
+import http from 'http';
+import { Server } from 'socket.io';
+import { setupSocketHandlers } from "./Web-Socket/socket.js";
 
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 dotenv.config();
 const app = express();
+const server = http.createServer(app); 
+
 
 app.use(
   cors({
@@ -28,13 +31,19 @@ app.use(
   })
 );
 
+export const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST"],
+  },
+});
+
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
-
 
 app.use(cookieParser());
 app.use(express.json());
@@ -59,22 +68,17 @@ app.use((err, req, res, next) => {
 });
 
 
-
-
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Hello InternGuru" });
 });
 
 
-
-
-
-
-
-
-app.listen(3000, () => {
-  console.log("Server Started on port 3000");
+server.listen(3000, () => {
+  console.log("🚀 Server + WebSocket started on port 3000");
 });
+
+
+setupSocketHandlers(io);
 
 
 mongoose

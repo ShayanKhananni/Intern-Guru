@@ -64,7 +64,7 @@ CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 
 # Password for email service (used by NodeMailer)
-APP_PASSWORD=your_email_app_password
+APP_PASSWORD= your_email_app_password
 
 # Stripe keys for payment processing
 STRIPE_SECRET_KEY=your_stripe_secret_key

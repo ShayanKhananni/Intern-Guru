@@ -6,6 +6,7 @@ const TaskSchema = new mongoose.Schema({
   title: { type: String, required: true, unique:[true,'Task Already'] },
   isDeleted: { type: Boolean, default: false },  
   description: { type: String },
+  collab:{type:Boolean}
 }, { timestamps: true });
 
 const Task = mongoose.model("TaskSchema", TaskSchema);
