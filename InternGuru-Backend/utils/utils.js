@@ -50,7 +50,7 @@ export const sendEmail = async (to, subject, text) => {
       service: 'gmail',
       auth: {
         user: 'internguruu@gmail.com', 
-        pass: 'waun dwsv moqp kvjd',
+        pass: process.env.APP_PASSWORD,
       },
     });
 
