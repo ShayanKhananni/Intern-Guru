@@ -5,7 +5,7 @@ import Kanban from "../models/kanban_model.js";
 import PurchasedCourse from "../models/purchased_course.model.js";
 import Task from "../models/task-model.js";
 import TaskSubmission from "../models/task_submission_model.js";
-import { customError, stripe, successResponseBuilder } from "../utils/utils.js";
+import { customError, resumeBuilder, stripe, successResponseBuilder } from "../utils/utils.js";
 
 
 
@@ -366,6 +366,51 @@ export const deleteKanban = async (req, res, next) => {
     next(err);
   }
 };
+
+
+
+
+
+
+
+
+// Main Express handler
+export const generateResume = async (req, res, next) => {
+  try {
+    const data = req.body;
+
+    // Parse JSON strings into objects/arrays
+    const resumeData = {
+      ...data,
+      education: JSON.parse(data.education),
+      experience: JSON.parse(data.experience),
+      skills: JSON.parse(data.skills),
+    };
+
+    // Generate PDF buffer
+    const resume = await resumeBuilder(resumeData);
+
+    // Set headers and send PDF buffer as response
+    res.set({
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': 'attachment; filename=resume.pdf',
+      'Content-Length': resume.length,
+    });
+
+    res.end(resume);
+
+  } catch (err) {
+    console.error('Error generating resume:', err);
+    next(err);
+  }
+};
+
+
+
+
+
+
+
 
 
 

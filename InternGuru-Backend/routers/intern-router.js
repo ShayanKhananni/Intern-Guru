@@ -1,5 +1,5 @@
 import expresss from "express";
-import { addKanban, applyForInternship, deleteKanban, enrollIntern, getCollaborativeTasks,getInternCourses, getInternsTasks, getKanbans, getPurcahseSession, purchaseCourse, submitTask, updateKanban, updateTaskSubmission } from "../controllers/intern-controller.js";
+import { addKanban, applyForInternship, deleteKanban, enrollIntern, generateResume, getCollaborativeTasks,getInternCourses, getInternsTasks, getKanbans, getPurcahseSession, purchaseCourse, submitTask, updateKanban, updateTaskSubmission } from "../controllers/intern-controller.js";
 import multer from "multer";
 import { validateAccessToken } from "../Middlewares.js";
 
@@ -23,6 +23,14 @@ internRouter.post('/kanban', addKanban);
 internRouter.get('/kanban', getKanbans);
 internRouter.put('/kanban/:id', updateKanban);
 internRouter.delete('/kanban/:id', deleteKanban);
+
+internRouter.post('/resume',upload.none(),generateResume);
+
+
+
+
+
+
 
 
 export default internRouter;

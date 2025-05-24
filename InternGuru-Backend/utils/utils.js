@@ -3,9 +3,19 @@ import streamifier from "streamifier";
 import nodemailer from 'nodemailer';
 import Stripe from 'stripe';
 import dotenv from 'dotenv';
+import ejs from 'ejs'
+import path from 'path'
+import puppeteer from "puppeteer";
+
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+
+
+
 dotenv.config()
-
-
 
 export const customError = (statusCode,message) =>
 {
@@ -78,7 +88,38 @@ export const sendEmail = async (to, subject, text) => {
     console.error('Error sending email:', error);
   }
 };
-
-
  
 export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+
+
+
+
+// Helper function to generate PDF buffer from EJS template
+export const resumeBuilder = async (resumeData) => {
+  // Render HTML from EJS template file
+  const html = await ejs.renderFile(
+    path.join(__dirname, '../templates/resume.ejs'),
+    { data: resumeData }
+  );
+
+  // Launch Puppeteer browser
+  const browser = await puppeteer.launch({
+    args: ['--no-sandbox', '--disable-setuid-sandbox'], // for some Linux environments
+  });
+
+  const page = await browser.newPage();
+
+  // Set rendered HTML content
+  await page.setContent(html, { waitUntil: 'networkidle0' });
+
+  // Generate PDF buffer from page
+  const pdfBuffer = await page.pdf({ format: 'A4', printBackground: true });
+
+  await browser.close();
+
+  return pdfBuffer;
+};
+
+
+

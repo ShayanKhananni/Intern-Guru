@@ -68,3 +68,23 @@ export const getInternshipDuration = async (req, res, next) => {
     return next(err);
   }
 };
+
+
+
+export const getUserName = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const enrollment = await Enrollment.find({ intern_id: id }).populate('intern_id');
+
+    if (!enrollment || enrollment.length === 0) {
+      return next(customError(404, 'User Not Found'));
+    }
+
+    const userData = enrollment[0].intern_id;
+
+    res.status(200).json(userData);
+  } catch (err) {
+    next(err);
+  }
+};
