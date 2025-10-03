@@ -7,10 +7,7 @@ const AuthRoutes = () => {
 
   if (user) {
     // If user is authenticated, redirect based on role
-    if (user.role === "intern") {
-      return <Navigate to="/" />;
-    }
-    if (user.role === "admin") {
+    if (user.role === "intern" || user.role === "admin") {
       return <Navigate to="/" />;
     }
   }
